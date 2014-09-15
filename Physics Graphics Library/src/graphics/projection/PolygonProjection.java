@@ -237,25 +237,7 @@ public class PolygonProjection
 	 */
 	public static ArrayList<PolygonProjection> sort(ArrayList<PolygonProjection> polygons)
 	{
-		ArrayList<PolygonProjection> sorted = new ArrayList<PolygonProjection>();
-		sorted.add(polygons.get(0));
-		for(int i = 1; i < polygons.size(); i ++)
-		{
-			for(int j = sorted.size() - 1; j >= 0; j --)
-			{
-				if(polygons.get(i).priority >= sorted.get(j).priority)
-				{
-					sorted.add(j + 1, polygons.get(i));
-					break;
-				}
-				else if(j == 0)
-				{
-					sorted.add(0, polygons.get(i));
-					break;
-				}
-			}
-		}
-		return sorted;
+		return sort((PolygonProjection[]) polygons.toArray());
 	}
 	
 	/**	Sorts the given array based on priority
@@ -284,5 +266,18 @@ public class PolygonProjection
 			}
 		}
 		return sorted;
+	}
+	
+	/**
+	 * Identifies the visible polygon projections of the given array list of polygon projections
+	 * 
+	 * @param polygons	the polygon projections to obtain the visibles from
+	 * @return	the visible polygon projections of the given array of polygon projections
+	 */
+	public static ArrayList<PolygonProjection> getVisible(ArrayList<PolygonProjection> polygons)
+	{
+		ArrayList<PolygonProjection> visibles = new ArrayList<PolygonProjection>();
+		
+		return visibles;
 	}
 }
